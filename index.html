@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EYM AWARD 26 — Official Voting Portal</title>
+    <title>EYM AWARD 26 — People's Choice Award</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +15,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #060913;
+            background-color: #050b1f;
             color: #f3f4f6;
         }
 
@@ -30,11 +30,11 @@
         .glass-card {
             background: rgba(13, 20, 38, 0.86);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(139, 92, 246, 0.25);
+            border: 1px solid rgba(59, 130, 246, 0.28);
         }
 
         .glow-effect {
-            box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.18);
         }
 
         .selected-card {
@@ -50,7 +50,7 @@
 
         .nominee-card:hover {
             transform: translateY(-2px);
-            border-color: rgba(139, 92, 246, 0.7);
+            border-color: rgba(59, 130, 246, 0.7);
         }
 
         .loading-spinner {
@@ -92,7 +92,7 @@
         .category-section-card {
             padding: 20px;
             border-radius: 24px;
-            border: 1px solid rgba(168,85,247,.22);
+            border: 1px solid rgba(59,130,246,.22);
             background: linear-gradient(180deg, rgba(30,41,59,.62), rgba(15,23,42,.48));
             box-shadow: 0 18px 45px rgba(0,0,0,.18);
         }
@@ -110,9 +110,9 @@
             display: inline-block;
             padding: 8px 16px;
             border-radius: 999px;
-            background: rgba(168,85,247,.14);
-            border: 1px solid rgba(192,132,252,.28);
-            color: #d8b4fe;
+            background: rgba(59,130,246,.14);
+            border: 1px solid rgba(96,165,250,.28);
+            color: #93c5fd;
         }
 
         .nominee-card.selected-card {
@@ -123,7 +123,7 @@
     </style>
 </head>
 
-<body class="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-950/40 via-slate-950 to-[#060913]">
+<body class="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-950/40 via-slate-950 to-[#050b1f]">
 
     <!-- =========================================================
          CONFIGURATION
@@ -139,7 +139,7 @@
         /*
          * Voting closing time
          */
-        const EVENT_DATE_TARGET = "2026-12-20T09:00:00+06:00";
+        const EVENT_DATE_TARGET = "2026-12-15T09:00:00+06:00";
 
         /*
          * EYM Logo
@@ -153,13 +153,13 @@
          HEADER
     ========================================================== -->
 
-    <header class="sticky top-0 z-50 glass-card border-b border-purple-900/30">
+    <header class="sticky top-0 z-50 glass-card border-b border-blue-900/30">
 
         <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
 
             <div class="flex items-center gap-3">
 
-                <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-lg shadow-purple-600/30 overflow-hidden border border-purple-500/30">
+                <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-lg shadow-blue-600/30 overflow-hidden border border-blue-500/30">
 
                     <img
                         src="https://lh3.googleusercontent.com/d/1c3tdbVxweesLdm8u7y2UlbnPPT_oa2A2"
@@ -171,12 +171,12 @@
 
                 <div>
 
-                    <span class="orbitron text-sm md:text-base font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-300">
+                    <span class="orbitron text-sm md:text-base font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
                         EYM AWARD 26
                     </span>
 
                     <span class="block text-[9px] text-gray-400 uppercase tracking-widest font-semibold">
-                        Official Voting Portal
+                        People's Choice Award
                     </span>
 
                 </div>
@@ -188,14 +188,14 @@
 
                 <a
                     href="#home"
-                    class="hover:text-purple-400 transition"
+                    class="hover:text-blue-400 transition"
                 >
                     Home
                 </a>
 
                 <a
                     href="#vote-section"
-                    class="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium hover:opacity-90 transition shadow-lg shadow-purple-600/30"
+                    class="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium hover:opacity-90 transition shadow-lg shadow-blue-600/30"
                 >
                     Vote Now
                 </a>
@@ -203,12 +203,12 @@
             </nav>
 
             <div class="md:hidden relative">
-                <button type="button" onclick="toggleMobileMenu()" class="w-10 h-10 rounded-xl bg-slate-900/80 border border-purple-500/30 flex items-center justify-center text-white" aria-label="Open menu">
+                <button type="button" onclick="toggleMobileMenu()" class="w-10 h-10 rounded-xl bg-slate-900/80 border border-blue-500/30 flex items-center justify-center text-white" aria-label="Open menu">
                     <span class="text-xl">☰</span>
                 </button>
-                <div id="mobileMenu" class="hidden absolute right-0 top-12 w-44 rounded-2xl glass-card border border-purple-500/30 p-2 shadow-2xl">
-                    <a href="#home" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-xl text-sm text-gray-200 hover:bg-purple-600/20">Home</a>
-                    <a href="#vote-section" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold mt-1">Vote Now</a>
+                <div id="mobileMenu" class="hidden absolute right-0 top-12 w-44 rounded-2xl glass-card border border-blue-500/30 p-2 shadow-2xl">
+                    <a href="#home" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-xl text-sm text-gray-200 hover:bg-blue-600/20">Home</a>
+                    <a href="#vote-section" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-semibold mt-1">Vote Now</a>
                 </div>
             </div>
 
@@ -234,11 +234,11 @@
             class="text-center py-4 md:py-6 space-y-6"
         >
 
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-900/30 border border-purple-700/40 text-purple-300 text-xs uppercase tracking-widest orbitron">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-900/30 border border-blue-700/40 text-blue-300 text-xs uppercase tracking-widest orbitron">
 
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
 
-                20 DECEMBER 2026
+                15 DECEMBER 2026
 
             </div>
 
@@ -247,12 +247,12 @@
 
                 <h1 class="orbitron text-2xl md:text-5xl font-black text-white tracking-tight leading-tight">
 
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-300 to-white">
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">
                         EVERY YOUTH MATTERS
                     </span>
 
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400">
-                        PEOPLE CHOICE
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400">
+                        PEOPLE'S CHOICE
                     </span>
 
                     <span class="block text-3xl md:text-5xl mt-2 text-white font-black tracking-widest">
@@ -282,7 +282,7 @@
 
                     <div class="grid grid-cols-4 gap-2.5">
 
-                        <div class="glass-card rounded-2xl p-2.5 text-center border border-purple-500/30 shadow-xl">
+                        <div class="glass-card rounded-2xl p-2.5 text-center border border-blue-500/30 shadow-xl">
 
                             <span
                                 id="days"
@@ -291,14 +291,14 @@
                                 00
                             </span>
 
-                            <span class="text-[9px] uppercase text-purple-400 font-bold tracking-wider">
+                            <span class="text-[9px] uppercase text-blue-400 font-bold tracking-wider">
                                 Days
                             </span>
 
                         </div>
 
 
-                        <div class="glass-card rounded-2xl p-2.5 text-center border border-purple-500/30 shadow-xl">
+                        <div class="glass-card rounded-2xl p-2.5 text-center border border-blue-500/30 shadow-xl">
 
                             <span
                                 id="hours"
@@ -307,14 +307,14 @@
                                 00
                             </span>
 
-                            <span class="text-[9px] uppercase text-purple-400 font-bold tracking-wider">
+                            <span class="text-[9px] uppercase text-blue-400 font-bold tracking-wider">
                                 Hours
                             </span>
 
                         </div>
 
 
-                        <div class="glass-card rounded-2xl p-2.5 text-center border border-purple-500/30 shadow-xl">
+                        <div class="glass-card rounded-2xl p-2.5 text-center border border-blue-500/30 shadow-xl">
 
                             <span
                                 id="minutes"
@@ -323,14 +323,14 @@
                                 00
                             </span>
 
-                            <span class="text-[9px] uppercase text-purple-400 font-bold tracking-wider">
+                            <span class="text-[9px] uppercase text-blue-400 font-bold tracking-wider">
                                 Mins
                             </span>
 
                         </div>
 
 
-                        <div class="glass-card rounded-2xl p-2.5 text-center border border-purple-500/30 shadow-xl">
+                        <div class="glass-card rounded-2xl p-2.5 text-center border border-blue-500/30 shadow-xl">
 
                             <span
                                 id="seconds"
@@ -339,7 +339,7 @@
                                 00
                             </span>
 
-                            <span class="text-[9px] uppercase text-purple-400 font-bold tracking-wider">
+                            <span class="text-[9px] uppercase text-blue-400 font-bold tracking-wider">
                                 Secs
                             </span>
 
@@ -359,7 +359,7 @@
 
                 <a
                     href="#vote-section"
-                    class="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-sm md:text-base shadow-xl shadow-purple-600/30 hover:opacity-95 transition tracking-wide inline-block uppercase orbitron"
+                    class="px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-sm md:text-base shadow-xl shadow-blue-600/30 hover:opacity-95 transition tracking-wide inline-block uppercase orbitron"
                 >
                     Vote Now
                 </a>
@@ -384,7 +384,7 @@
                     Cast Your Vote
                 </h2>
 
-                <p class="text-xs md:text-sm text-purple-400 uppercase tracking-widest">
+                <p class="text-xs md:text-sm text-blue-400 uppercase tracking-widest">
                     Select your favorite nominee
                 </p>
 
@@ -401,7 +401,7 @@
                 class="max-w-xl mx-auto glass-card rounded-2xl p-6 md:p-8 glow-effect space-y-5"
             >
 
-                <h3 class="orbitron text-sm font-semibold text-purple-300">
+                <h3 class="orbitron text-sm font-semibold text-blue-300">
                     Step 1: Your Information
                 </h3>
 
@@ -419,7 +419,7 @@
                         id="voterName"
                         autocomplete="name"
                         placeholder="e.g. Tanvir Ahmed"
-                        class="w-full bg-slate-900/90 border border-purple-900/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 transition text-white"
+                        class="w-full bg-slate-900/90 border border-blue-900/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition text-white"
                     >
 
                 </div>
@@ -438,7 +438,7 @@
                         id="voterEmail"
                         autocomplete="email"
                         placeholder="e.g. tanvir@gmail.com"
-                        class="w-full bg-slate-900/90 border border-purple-900/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 transition text-white"
+                        class="w-full bg-slate-900/90 border border-blue-900/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition text-white"
                     >
 
                 </div>
@@ -458,11 +458,11 @@
                         autocomplete="tel"
                         inputmode="tel"
                         placeholder="e.g. 01712345678"
-                        class="w-full bg-slate-900/90 border border-purple-900/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 transition text-white"
+                        class="w-full bg-slate-900/90 border border-blue-900/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition text-white"
                     >
 
                     <p class="text-[10px] text-gray-500 mt-1.5">
-                        One phone number can be used only once.
+                        
                     </p>
 
                 </div>
@@ -472,7 +472,7 @@
                     type="button"
                     onclick="proceedToInstitute()"
                     id="continueBtn"
-                    class="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:opacity-90 text-white font-medium text-sm shadow-lg shadow-purple-600/30 transition mt-2"
+                    class="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:opacity-90 text-white font-medium text-sm shadow-lg shadow-blue-600/30 transition mt-2"
                 >
                     Continue to Vote
                 </button>
@@ -496,7 +496,7 @@
                         Secondary Categories
                     </h3>
 
-                    <p class="text-xs text-purple-300 mt-1">
+                    <p class="text-xs text-blue-300 mt-1">
                         Select 1 nominee
                     </p>
 
@@ -541,7 +541,7 @@
                         Higher Secondary Categories
                     </h3>
 
-                    <p class="text-xs text-purple-300 mt-1">
+                    <p class="text-xs text-blue-300 mt-1">
                         Select 1 nominee
                     </p>
 
@@ -598,7 +598,7 @@
 
                 </div>
 
-                <div class="bg-black/40 border border-cyan-500/20 rounded-2xl p-5">
+                 <div class="bg-black/40 border border-cyan-500/20 rounded-2xl p-5">
 
                     <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">
                         Your Vote Token
@@ -619,13 +619,13 @@
 
                 <div
                     id="voteSummary"
-                    class="text-left bg-black/40 p-4 rounded-xl text-xs space-y-2 border border-purple-900/30"
+                    class="text-left bg-black/40 p-4 rounded-xl text-xs space-y-2 border border-blue-900/30"
                 >
                 </div>
 
                 <button
                     onclick="location.reload()"
-                    class="px-6 py-2.5 bg-purple-600 hover:bg-purple-500 text-white text-xs rounded-xl transition"
+                    class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs rounded-xl transition"
                 >
                     Back to Home
                 </button>
@@ -687,14 +687,14 @@
 
                 <div
                     id="voteSummary"
-                    class="text-left bg-black/40 p-4 rounded-xl text-xs space-y-2 border border-purple-900/30"
+                    class="text-left bg-black/40 p-4 rounded-xl text-xs space-y-2 border border-blue-900/30"
                 >
                 </div>
 
 
                 <button
                     onclick="location.reload()"
-                    class="px-6 py-2.5 bg-purple-600 hover:bg-purple-500 text-white text-xs rounded-xl transition"
+                    class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs rounded-xl transition"
                 >
                     Back to Home
                 </button>
@@ -712,15 +712,20 @@
     ========================================================== -->
 
     <footer
-        class="max-w-5xl mx-auto px-4 py-10 mt-20 border-t border-purple-900/30 text-center text-xs text-gray-400 space-y-2"
+        class="max-w-5xl mx-auto px-4 py-10 mt-20 border-t border-blue-900/30 text-center text-xs text-gray-400 space-y-2"
     >
 
-        <p class="orbitron text-xs uppercase tracking-widest text-purple-300 font-bold">
+        <p class="orbitron text-xs uppercase tracking-widest text-blue-300 font-bold">
             EYM AWARD 26
         </p>
 
         <p class="text-[11px] text-gray-500">
             © 2026 EYM AWARDS • All Rights Reserved
+        </p>
+
+        <p class="text-[11px] text-gray-500">
+            Email: <a href="mailto:hello.eyms@gmail.com" class="text-blue-400 hover:text-cyan-300 transition">hello.eyms@gmail.com</a>
+            • Phone: <a href="https://wa.me/8801860759423?text=Hi!%20I%20am%20from%20EYM%20AWARD%2026%20website." target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-cyan-300 transition">+880 1860759423</a>
         </p>
 
     </footer>
@@ -843,7 +848,7 @@
                 const result = await response.json();
 
                 if (result.success) {
-                    if (result.closeTime) closeTimeValue = result.closeTime;
+                    closeTimeValue = EVENT_DATE_TARGET;
                     setVotingClosed(result.closed);
                     updateCountdown();
                 }
@@ -871,7 +876,7 @@
                     onclick="selectNominee('${nom.name.replace(/'/g, "\\'")}', '${nom.serial}', '${category}', this)"
                     class="nominee-card glass-card rounded-2xl p-4 flex items-center gap-3.5 cursor-pointer"
                 >
-                    <div class="w-12 h-12 rounded-xl bg-white p-1 border border-purple-900/40 shrink-0 flex items-center justify-center">
+                    <div class="w-12 h-12 rounded-xl bg-white p-1 border border-blue-900/40 shrink-0 flex items-center justify-center">
                         <img
                             src="${nom.logo}"
                             alt="EYM"
@@ -880,7 +885,7 @@
                     </div>
 
                     <div class="min-w-0 flex-1">
-                        <span class="text-[10px] text-purple-400 font-mono font-bold">
+                        <span class="text-[10px] text-blue-400 font-mono font-bold">
                             ${nom.id}
                         </span>
 
@@ -1199,238 +1204,4 @@
                         </div>
 
                         <div>
-                            <span class="text-gray-500">Email</span>
-                            <div class="text-white mt-0.5">
-                                ${escapeHTML(voteData.email)}
-                            </div>
-                        </div>
-
-                        <div>
-                            <span class="text-gray-500">Phone</span>
-                            <div class="text-white mt-0.5">
-                                ${escapeHTML(voteData.phone)}
-                            </div>
-                        </div>
-
-                        <div>
-                            <span class="text-gray-500">Secondary</span>
-                            <div class="text-emerald-400 font-bold mt-0.5">
-                                ${escapeHTML(voteData.secondaryName)}
-                            </div>
-                        </div>
-
-                        <div>
-                            <span class="text-gray-500">Higher Secondary</span>
-                            <div class="text-emerald-400 font-bold mt-0.5">
-                                ${escapeHTML(voteData.higherSecondaryName)}
-                            </div>
-                        </div>
-                    `;
-
-                    goToStep(4);
-                    return;
-                }
-
-                if (result.code === "VOTING_CLOSED") {
-
-                    setVotingClosed(true);
-
-                    showNotification(
-                        "Voting is closed.",
-                        "error"
-                    );
-
-                } else if (result.code === "DUPLICATE_PHONE") {
-
-                    showNotification(
-                        "এই ফোন নাম্বারটি আগে ভোট দেওয়ার জন্য ব্যবহার করা হয়েছে।",
-                        "error"
-                    );
-
-                } else if (result.code === "DUPLICATE_EMAIL") {
-
-                    showNotification(
-                        "এই ইমেইল ঠিকানাটি আগে ভোট দেওয়ার জন্য ব্যবহার করা হয়েছে।",
-                        "error"
-                    );
-
-                } else if (result.code === "DUPLICATE_PHONE_EMAIL") {
-
-                    showNotification(
-                        "এই ফোন নাম্বার এবং ইমেইল আগে ব্যবহার করা হয়েছে।",
-                        "error"
-                    );
-
-                } else {
-
-                    showNotification(
-                        result.message || "Vote submission failed.",
-                        "error"
-                    );
-                }
-
-                btn.disabled = false;
-                btn.innerText = "Submit Vote";
-
-            } catch (error) {
-
-                console.error(error);
-
-                showNotification(
-                    "Network error. Please check your internet connection and try again.",
-                    "error"
-                );
-
-                btn.disabled = false;
-                btn.innerText = "Submit Vote";
-            }
-        }
-
-
-        /* ======================================================
-           NOTIFICATION
-        ====================================================== */
-
-        function showNotification(message, type = "error") {
-
-            const old =
-                document.getElementById("voteNotification");
-
-            if (old) {
-
-                old.remove();
-
-            }
-
-
-            const notification =
-                document.createElement("div");
-
-
-            notification.id =
-                "voteNotification";
-
-
-            const isError =
-                type === "error";
-
-
-            notification.className = `
-
-                fixed
-                top-5
-                left-1/2
-                -translate-x-1/2
-                z-[999]
-                w-[calc(100%-32px)]
-                max-w-md
-                rounded-2xl
-                px-5
-                py-4
-                shadow-2xl
-                border
-                backdrop-blur-xl
-                transition-all
-                duration-300
-
-                ${isError
-                    ? "bg-red-950/95 border-red-500/40 text-red-100"
-                    : "bg-emerald-950/95 border-emerald-500/40 text-emerald-100"
-                }
-
-            `;
-
-
-            notification.innerHTML = `
-
-                <div class="flex items-start gap-3">
-
-                    <div class="text-lg">
-                        ${isError ? "⚠️" : "✓"}
-                    </div>
-
-                    <div class="flex-1">
-
-                        <div class="text-sm font-semibold">
-                            ${isError ? "Vote Not Submitted" : "Success"}
-                        </div>
-
-                        <div class="text-xs opacity-80 mt-1 leading-relaxed">
-                            ${escapeHTML(message)}
-                        </div>
-
-                    </div>
-
-                    <button
-                        onclick="this.closest('#voteNotification').remove()"
-                        class="text-xs opacity-60 hover:opacity-100"
-                    >
-                        ✕
-                    </button>
-
-                </div>
-
-            `;
-
-
-            document.body.appendChild(notification);
-
-
-            setTimeout(() => {
-
-                if (notification) {
-
-                    notification.remove();
-
-                }
-
-            }, 5000);
-
-        }
-
-
-
-        /* ======================================================
-           HTML ESCAPE
-        ====================================================== */
-
-        function escapeHTML(value) {
-
-            return String(value)
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-
-        }
-
-
-
-        function toggleMobileMenu() {
-            document.getElementById("mobileMenu").classList.toggle("hidden");
-        }
-
-        function closeMobileMenu() {
-            document.getElementById("mobileMenu").classList.add("hidden");
-        }
-
-
-        /* ======================================================
-           INITIALIZE
-        ====================================================== */
-
-        window.addEventListener(
-            "DOMContentLoaded",
-            () => {
-
-                renderNominees();
-                loadVotingStatus();
-
-            }
-        );
-
-    </script>
-
-</body>
-</html>
+                            
